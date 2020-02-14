@@ -421,10 +421,10 @@ public class HttpRequest extends Not implements HttpObject<HttpRequest, Body> {
 
     @JsonIgnore
     public String getBodyAsString() {
-        if (body != null) {
-            return body.toString();
-        } else {
+        if (body == null || "null".equals(body.toString())) {
             return null;
+        } else {
+            return body.toString();
         }
     }
 
